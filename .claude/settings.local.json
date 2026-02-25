@@ -5,7 +5,12 @@
       "Bash(gh auth:*)",
       "Bash(git fetch:*)",
       "Bash(python:*)",
-      "Bash(head:*)"
+      "Bash(head:*)",
+      "Bash(cd:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(pip show:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(find C:\\\\Users\\\\cwilsch\\\\projects\\\\lerobot\\\\src\\\\lerobot:*)"
     ]
   }
 }
