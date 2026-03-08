@@ -1,27 +1,24 @@
-# umbra robotics
+# train
 
-**Teaching cheap robots to do hard things.**
+Colab notebook for training a **Diffusion Policy** on the SO-101 robot arm using [LeRobot](https://github.com/huggingface/lerobot).
 
-We're building AI software that turns commodity robot arms into skilled autonomous workers. The intelligence lives in the model, not the hardware — if an arm breaks, swap it. The brain carries over.
+## What's in here
 
-### What we do
+`train_diffusion_so101.ipynb` — end-to-end training pipeline that:
 
-- **Imitation learning on off-the-shelf hardware** — visuomotor policies that give sub-$500 arms human-level dexterity for delicate manipulation tasks
-- **Self-supervising data pipeline** — deployed robots generate their own training data, scored by an autonomous vision model, no human labeling required
-- **Software, not hardware** — we sell the intelligence layer as a service; hardware ships at cost
+1. Installs LeRobot + dependencies on a Colab GPU runtime
+2. Loads the `lerobot/svla_so101_pickplace` dataset (50 episodes, dual-camera)
+3. Trains a diffusion policy for pick-and-place with WandB logging
+4. Uploads the trained checkpoint to Hugging Face Hub
 
-### The moat
+Works on a free T4 (~10h for 100k steps) or an A100 (~3h).
 
-Every robot in the field collects real-world data. More deployments means a better model means more deployments. This data flywheel compounds over time and gets harder to replicate.
+## Quick start
 
-### Tech stack
+Open the notebook in Google Colab, set your `HF_TOKEN`, `HF_USER`, and `WANDB_API_KEY` secrets, and run all cells.
 
-Imitation learning (Action Chunking Transformers) · LeRobot · end-to-end visuomotor policies · domain randomization · self-grading vision models
+## References
 
-### About
-
-umbra robotics is based in northern Germany. Founded by a mechanical engineer with a background in geometric deep learning and industrial-scale engineering.
-
----
-
-*We're early and building fast. Watch this space.*
+- [Diffusion Policy paper](https://arxiv.org/abs/2303.04137)
+- [LeRobot docs](https://huggingface.co/docs/lerobot)
+- [SO-101 pick-place dataset](https://huggingface.co/datasets/lerobot/svla_so101_pickplace)
